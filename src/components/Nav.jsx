@@ -62,11 +62,11 @@ export default function Nav() {
                           Profile
                         </Link>
                       </li>
-                      <li>
+                      {/* <li>
                         <Link className="dropdown-item" to="/settings">
                           Settings
                         </Link>
-                      </li>
+                      </li> */}
                       <li>
                         <hr className="dropdown-divider" />
                       </li>

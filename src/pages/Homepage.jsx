@@ -55,7 +55,7 @@ export default function Homepage() {
           >
             <i className="bi bi-check-circle-fill me-2"></i>
             <div>
-              Welcome back, <strong>{user.name}</strong>! Ready to create more
+              Welcome to Picslify, <strong>{user.name}</strong>! Ready to create more
               memories?
             </div>
           </div>

@@ -306,7 +306,7 @@ export default function AppBar() {
                         transition-all duration-300 
                         hover:bg-light 
                         hover:text-primary"
-                      to="/login"
+                      to="/auth"
                     >
                       Login
                     </Link>
@@ -318,7 +318,7 @@ export default function AppBar() {
                         transition-all duration-300 
                         hover:shadow-lg 
                         active:scale-95"
-                      to="/register"
+                      to="/auth"
                     >
                       Sign Up
                     </Link>

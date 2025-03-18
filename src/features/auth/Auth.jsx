@@ -1,20 +1,31 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { loginUser, registerUser } from "./authSlice";
+import { useNavigate, useLocation } from "react-router-dom";
+import { loginUser, registerUser, clearError } from "./authSlice";
 
 export default function Auth() {
+  const location = useLocation();
   const [userData, setUserData] = useState({
     name: "",
     username: "",
     password: "",
   });
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(
+    location.state?.isLogin !== undefined ? location.state.isLogin : true
+  );
   const [success, setSuccess] = useState("");
 
   const dispatch = useDispatch();
   const { status, error, isAuthenticated } = useSelector((state) => state.auth);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (error || !location.state) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      dispatch(clearError());
+    }
+  }, []);
 
   useEffect(() => {
     if (status === "succeeded" && isAuthenticated) {
